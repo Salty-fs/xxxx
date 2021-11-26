@@ -29,7 +29,7 @@ app.get('/',(req,res) =>{
 
 app.post('/getforce',(req,res) =>{
   let data = JSON.stringify(req.body) +"\r\n"
-  console.log(req.body);
+  console.log(req);
   //触发事件   
   try{
     myevent.emit('abc',data)
@@ -39,13 +39,13 @@ app.post('/getforce',(req,res) =>{
   //解析请求参数
   // var params = URL.parse(req.url, true).query;
   // console.log("@req",req)
-  try { 
-    fs.writeFileSync('./log.txt', data,{ flag: 'a+' }, (err) => {})
+  // try { 
+  //   fs.writeFileSync('./log.txt', data,{ flag: 'a+' }, (err) => {})
   
-    //file written successfully
-  } catch (err) {
-    console.error(err)
-  }
+  //   //file written successfully
+  // } catch (err) {
+  //   console.error(err)
+  // }
   // console.log("@res",res)
   var addSqlParams = [req.body.devicename,req.body.productid,req.body.timestamp,req.body.timemills,req.body.payload.params.force_of_hx,req.body.payload.params.measure];  
   connection.query(addSql,addSqlParams,function (err, result) {
