@@ -29,7 +29,7 @@ app.get('/',(req,res) =>{
 
 app.post('/getforce',(req,res) =>{
   let data = JSON.stringify(req.body) +"\r\n"
-  console.log(req);
+  console.log(req.data);
   //触发事件   
   try{
     myevent.emit('abc',data)
