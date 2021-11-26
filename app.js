@@ -29,7 +29,8 @@ app.get('/',(req,res) =>{
 
 app.post('/getforce',(req,res) =>{
   let data = JSON.stringify(req.body) +"\r\n"
-  console.log(req.data);
+  console.log("data".req.data);
+  console.log(req.body);
   //触发事件   
   try{
     myevent.emit('abc',data)
@@ -57,14 +58,6 @@ app.post('/getforce',(req,res) =>{
       console.log(result.message)             
   });
   res.send(req.body)
-})
-
-app.put('/user',(req,res) =>{
-    res.send("put user/")
-})
-
-app.delete('/user',(req,res) =>{
-    res.send("delete user/")
 })
 
 app.ws('/sendforce', function (ws, req) {
