@@ -27,8 +27,9 @@ app.get('/',(req,res) =>{
     res.send("Hello World!")
 })
 
-app.post('/getforce',(req,res) =>{
+app.get('/getforce',(req,res) =>{
   let data = JSON.stringify(req.body) +"\r\n"
+  console.log("req",req);
   console.log("data",req.data);
   console.log("body",req.body);
   //触发事件   
